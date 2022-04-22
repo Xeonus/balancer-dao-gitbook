@@ -13,6 +13,7 @@ Financial implications:
 * veBAL equates to [boosted liquidity mining incentives](financial-implications/boosting-bal-incentives/) for all incentivized pools. In short, the staked pool share, and the lock multiplier, or boost, are both factors in a user’s liquidity mining “APR”.
 * Lockers receive 75% of protocol fees. 50% of the swap fees accumulated on Balancer Protocol are collected as protocol fees. So, of all fees 75% of 50% are distributed to the veBAL holders, more veBAL equates to a larger portion of the [protocol revenue distribution.](financial-implications/protocol-revenue-distribution.md)
 * veBAL will be used for a governance [gauge voting mechanism](financial-implications/gauge-voting.md) to decide which pools receive BAL liquidity mining incentives. Users can direct liquidity mining incentives to the pools of their choice.&#x20;
+  * veBAL does have a gauge to direct rewards to the holders if chosen. This option is capped at 10% of total emissions of BAL at a given time in the inflation schedule. The overflow, if a vote goes over 10%, will go to the DAO treasury, where governance will have ownership of it.&#x20;
 
 This gives veBAL holders the option to choose pools they have liquidity positions in for increased incentives or a potential for bribing battles can ensue. Bribing battles will essentially allow projects to provide veBAL holders a compensation or incentivize to vote in a direction they prefer, hence the term “bribe”.
 

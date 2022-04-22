@@ -20,6 +20,8 @@ Gauges will be voted for through mainnet only, here delegation of BAL incentives
 
 Users can view the current pools eligible for gauge voting [here.](https://app.balancer.fi/#/vebal) Interested in proposing your project's token to be eligible for voting? Check out the [instructions](https://forum.balancer.fi/t/instructions-overview/2674) page on our forum.&#x20;
 
+A key note here is that veBAL can vote for the gauge of veBAL itself. This is capped at 10% of total emissions of BAL at a given time in the inflation schedule. The overflow, if a vote goes over 10%, will go to the DAO treasury, where governance will have ownership of it.&#x20;
+
 ### **External veBAL Incentives**
 
 The potential for external incentives or cross project incentivization, also known as "bribing" is a common byproduct of gauge voting systems. How this benefits veBAL holders and the projects which choose to influence their votes is described below.&#x20;
