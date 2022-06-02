@@ -1,22 +1,30 @@
-# Weight Pool - Real Scale
+---
+description: This example is based upon the Arbitrum Weighted pool named in the title
+---
 
-_Please note this is an example in **weighted** terms. The actual stable pool has a more dynamic system under the hood on Balancer._
+# USDC WETH WBTC 33/33/33
 
-At time of creation our stable pool holds roughly 163 million USD. To be less precise on decimals we will say USDC is 55 million, USDT is 54.5 million, and DAI is 53.5 million. Now we will see how those values compare before and after a swap 1000 times larger than out prior example. Please note in this example we are ignoring slippage and swap fees which are incurred during a trade. You will notice on site under these conditions 1 Dai is worth more than 1 USDC but proportions will not seem exact. Later lessons will dig deeper into these functionalities of the underlying algorithms.
+At time of writing, this pool holds roughly 10.261 million USD. To be less precise on decimals we will say the pool holds $3.410MM of USDC, $3.422MM of WETH, and $3.429MM of WBTC. Please note in this example we are ignoring price impact and swap fees which are incurred during a trade. To solidify the idea that a pool is its own market and is independent of the external prices, we can see here that the USD price of USDC is slightly under $1. These prices are dictated directly by token balances, and will only be arbitraged back to market price by external users if the extractable amount is greater than the “financial friction” (gas and swap fees) of the system.
 
-![](<../../../.gitbook/assets/Screen Shot 2022-02-27 at 1.40.49 PM.png>)
+![](<../../../.gitbook/assets/Screen Shot 2022-06-01 at 9.26.48 PM.png>)
 
-We can see our pools will keep the weighting constant from the previous two diagrams. This means the value of the token will dynamically change with the quantity of each token in the pool. Therefore, the weights will remain constant and we must solve for the value of each token. The question now becomes how much each token worth is.
+We can see our pools will keep the weighting constant. This means the value of the token will dynamically change with the quantity of each token in the pool.
 
-* Weight (Wt) will be constant, in this case 1/3. This is set during the creation of the pool
-* The balance (B(USD)) will be our pool value over the number of tokens in this case is calculated by:
+![](<../../../.gitbook/assets/Screen Shot 2022-06-01 at 9.30.56 PM.png>)
 
-![](<../../../.gitbook/assets/Screen Shot 2022-04-01 at 7.36.23 PM.png>)
+* Weight (Wt) will be constant, in this case each token’s weight is 33.33% of the pool. This is set during the creation of the pool
+* The value V(usd)  will be our pool value over the number of tokens in this case is calculated by:
 
-* We can now determine our value of each token.
+![](<../../../.gitbook/assets/Screen Shot 2022-06-01 at 9.25.03 PM.png>)
 
-![](<../../../.gitbook/assets/Screen Shot 2022-04-01 at 7.36.50 PM.png>)
+We can now determine our value of each token.
 
-Therefore our final calculation for the value function will yield the following equation:
+![](<../../../.gitbook/assets/Screen Shot 2022-06-01 at 9.24.52 PM.png>)
 
-![](<../../../.gitbook/assets/Screen Shot 2022-04-01 at 7.37.25 PM.png>)
+Using the expected value as a benchmark for what the pool would hold in a perfectly balanced state, we can generate the following data:
+
+![](<../../../.gitbook/assets/Screen Shot 2022-06-01 at 9.24.43 PM.png>)
+
+In both instances the value function holds true yielding essentially the equations below:
+
+![](<../../../.gitbook/assets/Screen Shot 2022-06-01 at 9.24.29 PM.png>)

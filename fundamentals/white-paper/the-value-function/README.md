@@ -6,7 +6,7 @@ description: >-
 
 # The Value Function
 
-The base component of balancer pools is based on the function below being true at all times. Due to this function, the pools which liquidity is stored in are open to fluctuating prices of tokens in reference to one another. This inherently leads to slippage and allows for arbitrage opportunities to rebalance the pool. Indirectly this leads to impermanent loss as well. Let’s dissect this with some numbers for a small scale and large scale example to see the effects.
+The invariant, or Value Function, of Balancer Weighted Pools is critical for maintaining pool value and fair swap prices. . This weighted constant product equation facilitates pools of assets with fluctuating prices with respect  to one another. Fluctuations inherently lead to price impact, which creates r arbitrage opportunities for rebalancing the pool to market price. Another consequence of this mechanism is impermanent loss, or divergence loss. What does this mean to a user and what is different between two token and multiple token pools? We will look at several examples to explain the differences.
 
 Value Function:
 
@@ -26,18 +26,20 @@ Essentially _t_ represents how many tokens there are in a pool. We will do even 
 
 _Bt_
 
-_Bt_ is the balance of the token but this is not to be confused with the universal cost of the token. The pool is only as aware of prices as its contents dictate the market of traders around it then are responsible for making the value match the rest of the market.
+Bt is the balance of the token but this is not to be confused with the universal cost of the token. The pool is only as aware of prices as its contents dictate. The market of traders are responsible for (and financially incentivised to) making the value match the rest of the market.
 
 For general use:
 
 $$
-B_{t}=\# \ of \ tokens \ in \ the \ pool
+B_{t}=\# \ of \ different \ tokens \ in \ the \ pool
 $$
 
-For purpose is terms of USDC:
+The USD value of the balance of a given token within the pool is dependent upon an external definition of price, often supplied by CoinGecko:
 
-![](<../../../.gitbook/assets/Screen Shot 2022-04-01 at 7.32.54 PM.png>)
+$$
+B_{t}=( \# \ of \ different \ tokens \ in \ the \ pool ) \ * \ (External \ Price \ of \ token)
+$$
 
 _Wt_
 
-_Wt_ is the weight of the token in the pool and is best explained in an example since it is dynamic and related to the balance discussed prior. Think of it as the weight at a given set of prices of each token.
+Wt is the weight of the token in the pool. If a pool is well balanced with market prices, the weight of a token corresponds to how much of the pool’s value is denominated in that token.
